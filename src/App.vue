@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container mt-10">
+  <div id="app" class="container ">
     <app-header></app-header>
     <app-search-panel></app-search-panel>
     <app-todo-list></app-todo-list>
