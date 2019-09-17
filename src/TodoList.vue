@@ -1,6 +1,13 @@
 <template>
   <div>
 
+    <div class="input-group">
+      <input type="text" class="form-control" v-model="newItem" placeholder="What needs to be done?" @keyup.enter="addItem">
+      <div class="input-group-append">
+        <button @click="addItem" class="btn btn-info">Add</button>
+      </div>
+    </div>
+
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -9,16 +16,9 @@
       >{{ item.title }}
         <div class="grow"></div>
         <button @click="removeItem(index)" class="btn btn-sm btn-danger" type="button">Delete</button>
-        <button @click="activeItem(index)" class="btn btn-sm btn-success" type="button">Active</button>
       </li>
     </ul>
 
-    <div class="input-group">
-      <input type="text" class="form-control" v-model="newItem" placeholder="What needs to be done?" @keyup.enter="addItem">
-      <div class="input-group-append">
-        <button class="btn btn-info">Add</button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       newItem: '',
-      idItem: 3,
+      idItem: '',
       items: [
         {
           'id': 1,
@@ -36,7 +36,7 @@ export default {
         },
         {
           'id': 2,
-          'title': 'Great Todo List App',
+          'title': 'Create Todo List App',
           'completed': false
         }
       ]
@@ -58,9 +58,6 @@ export default {
     },
     removeItem(index) {
       this.items.splice(index, 1)
-    },
-    activeItem(index) {
-
     }
   }
 }
@@ -75,8 +72,6 @@ export default {
     margin: 20px 0;
     &-item {
       display: flex;
-      .btn-danger {
-      }
     }
   }
 </style>
